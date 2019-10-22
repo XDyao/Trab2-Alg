@@ -6,12 +6,7 @@
 in main(void){
 
     int plate, in, hours, out;
-
-    scanf("%d %d %d %d", &plate, &in, &hours, &out);
-
-    cadastro *carro = malloc(sizeof(carro));
-    set_cadastro(carro, plate, in, hours, out);
-
+    
     Fila **f;
 
     Pilha **p;
@@ -29,6 +24,10 @@ in main(void){
 
         switch(op):
             case 1:
+                scanf("%d %d %d %d", &plate, &in, &hours, &out);
+                cadastro *carro = malloc(sizeof(carro));
+                set_cadastro(carro, plate, in, hours, out);
+
                 break;
             case 2:
                 break;
