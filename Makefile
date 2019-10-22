@@ -18,3 +18,6 @@ run:
 
 clean:
 	rm temp/* bin/*
+
+test:
+	echo "TESTE!"
