@@ -7,24 +7,26 @@
 int main(void){
 
     int plate, in, hours, out, desconto = 0;
-    Fila **f;
-    Pilha **p;
+    Fila **f = malloc(sizeof(Fila*));
+    Pilha **p = malloc(sizeof(Pilha*));
     cria_fila(f);
-    printf("DEU MERDA AQUI?\n");
     cria_pilha(p);
     int op;
 
     do{
-        printf("MENU DE OPCOES:\n");
-        printf("Digite 1 para registrar carro, 2 para imprimir carros, 3 para sair\n");
+        printf("\t\t\tMENU DE OPCOES:\n");
+        printf("1 - Registrar carro\t2 - Imprimir carros\t3 - Sair\n");
         scanf("%d",&op);
 
         switch(op){
             case 1:
-                scanf("%d %d %d %d", &plate, &in, &hours, &out);
+                scanf("%d %d %d", &plate, &in, &hours);
+                if((in + hours) > 22){
+                    printf("Digite um horario valido!\n");
+                    break;
+                }
                 cadastro *carro = malloc(sizeof(carro));
-                set_cadastro(carro, plate, in, hours, out, desconto);
-
+                set_cadastro(carro, plate, in, hours, (in+hours), desconto);
                 break;
             case 2:
                 break;
@@ -32,10 +34,6 @@ int main(void){
                 break;
         }
     }while(op != 3);
-    
-
-
-
-
-
+    free(f); free(p);
+    return 0;
 }

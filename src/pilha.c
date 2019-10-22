@@ -12,8 +12,8 @@ struct pilha{
 };
 
 void cria_pilha(Pilha **p) {
+    (*p) = malloc(sizeof(Pilha));
     (*p)->tam = 0;
-    *p = malloc(sizeof(Pilha));
     (*p)->ini = NULL;
     return;
 }

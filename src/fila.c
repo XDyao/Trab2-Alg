@@ -14,7 +14,6 @@ struct fila {
 
 void cria_fila(Fila **f) {
     (*f) = malloc(sizeof(Fila));
-    printf("DEU MERDA AQUI?\n");
     (*f)->ini = NULL;
     (*f)->fim = NULL;
     return;
