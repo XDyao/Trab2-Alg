@@ -6,12 +6,15 @@ compile: CADASTRO FILA PILHA
 
 CADASTRO:
 	gcc -c src/cadastro.c
-	
+
 FILA: CADASTRO
 	gcc -c src/fila.c
 
 PILHA: CADASTRO
 	gcc -c src/pilha.c
+
+run:
+	./bin/MAIN
 
 clean:
 	rm temp/* bin/*
