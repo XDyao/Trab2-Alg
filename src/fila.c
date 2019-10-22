@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../lib/fila.h"
-#include "../lib/cadastro.h"
+
 
 struct Laco{
     cadastro info;
@@ -9,7 +9,7 @@ struct Laco{
 };
 
 struct fila {
-    No *ini, *fim;
+    No_fila *ini, *fim;
 };
 
 void cria_fila(Fila **f) {
@@ -20,7 +20,7 @@ void cria_fila(Fila **f) {
 }
 
 void esvazia_fila(Fila **f) {
-    No *aux;
+    No_fila *aux;
     while ((*f)->ini != NULL) {
         aux = (*f)->ini;
         (*f)->ini = (*f)->ini->prox;
@@ -31,9 +31,9 @@ void esvazia_fila(Fila **f) {
     return;
 }
 
-void adiciona_fila(Fila *f, elem x) {
-    No *aux;
-    aux = malloc(sizeof(No));
+void adiciona_fila(Fila *f, cadastro x) {
+    No_fila *aux;
+    aux = malloc(sizeof(No_fila));
     aux->info = x;
     aux->prox = NULL;
     if (!fila_vazia(f))
@@ -45,7 +45,7 @@ void adiciona_fila(Fila *f, elem x) {
 }
 
 int tamanho_fila(Fila *f) {
-    No *aux = f->ini;
+    No_fila *aux = f->ini;
     int contagem = 0;
     while (aux != NULL) {
         contagem++;
@@ -54,8 +54,8 @@ int tamanho_fila(Fila *f) {
     return contagem;
 }
 
-int remove_fila(Fila *f, elem *x) {
-    No *aux;
+int remove_fila(Fila *f, cadastro *x) {
+    No_fila *aux;
     if (fila_vazia(f))
         return 1;
     *x = f->ini->info;

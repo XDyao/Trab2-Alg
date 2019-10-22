@@ -1,8 +1,8 @@
 all: compile
-	gcc -o bin/MAIN src/main.c tmp/cadastro.o temp/fila.o temp/pilha.o
+	gcc -o bin/MAIN src/main.c temp/cadastro.o temp/fila.o temp/pilha.o
 
 compile: CADASTRO FILA PILHA
-	mv src/*.o temp/
+	mv *.o temp/
 
 CADASTRO:
 	gcc -c src/cadastro.c
