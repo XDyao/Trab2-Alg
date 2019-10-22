@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "fila.h"
-#include "pilha.h"
-#include "cadastro.h"
+#include "../lib/fila.h"
+#include "../lib/pilha.h"
+#include "../lib/cadastro.h"
 
 in main(void){
 

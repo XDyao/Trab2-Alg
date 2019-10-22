@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "fila.h"
-#include "cadastro.h"
+#include "../lib/fila.h"
+#include "../lib/cadastro.h"
 
 struct Laco{
     cadastro info;

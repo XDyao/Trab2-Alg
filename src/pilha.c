@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include "pilha.h"
-#include "cadastro.h"
+#include "../lib/pilha.h"
+#include "../lib/cadastro.h"
 
 struct no{
     cadastro info;

@@ -1,4 +1,4 @@
-#include "cadastro.h"
+#include "../lib/cadastro.h"
 
 void set_cadastro(cadastro *carro, int plate, int in, int hours, int out){
     cadastro.placa = plate;
