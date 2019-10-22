@@ -29,11 +29,13 @@ int main(void){
                 set_cadastro(carro, plate, in, hours, (in+hours), desconto);
                 break;
             case 2:
+                printa_fila((*f));
+                printa_pilha((*p));
                 break;
             default:
                 break;
         }
     }while(op != 3);
-    free(f); free(p);
+    esvazia_fila(f); destroi_pilha(p); free(f); free(p);
     return 0;
 }

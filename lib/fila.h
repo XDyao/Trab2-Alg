@@ -10,3 +10,4 @@ void adiciona_fila(Fila *f, cadastro x);
 int tamanho_fila(Fila *f);
 int remove_fila(Fila *f, cadastro *x);
 int fila_vazia(Fila *f);
+void printa_fila(Fila *f);

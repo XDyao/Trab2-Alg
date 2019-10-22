@@ -68,3 +68,19 @@ int remove_fila(Fila *f, cadastro *x) {
 int fila_vazia(Fila *f) {
     return (f->ini == NULL);
 }
+
+void printa_fila(Fila *f){
+    No_fila *aux;
+    if (fila_vazia(f)){
+        printf("Fila Vazia!\n");
+        return;
+    }
+    aux = f->ini;
+    int i = 1;
+    while(aux != NULL){
+        printf("%dº Carro da Fila\n",i);
+        printa_cadastro(&(aux->info));
+        i++;
+    }
+    return;
+}

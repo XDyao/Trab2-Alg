@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "../lib/pilha.h"
 
 struct no{
@@ -61,4 +62,19 @@ int tira_pilha(Pilha *p, cadastro *x) {
 
 int getTamPilha(Pilha *p){
     return (p->tam);
+}
+
+void printa_pilha(Pilha *p){
+    No_pilha *aux;
+    if (pilha_vazia(p)){
+        printf("Pilha Vazia!\n");
+        return;
+    }
+    aux = p->ini;
+    int i = 1;
+    while(aux != NULL){
+        printf("%dº Carro da Pilha\n",i);
+        printa_cadastro(&(aux->info));
+        i++;
+    }
 }
