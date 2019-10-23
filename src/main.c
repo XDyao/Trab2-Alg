@@ -32,6 +32,8 @@ int main(void){
                 printa_fila((*f));
                 printa_pilha((*p));
                 break;
+            case 3:
+                break;
             default:
                 break;
         }
