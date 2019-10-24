@@ -10,12 +10,14 @@ struct Laco{
 
 struct fila {
     No_fila *ini, *fim;
+    int tam;
 };
 
 void cria_fila(Fila **f) {
     (*f) = malloc(sizeof(Fila));
     (*f)->ini = NULL;
     (*f)->fim = NULL;
+    (*f)->tam = 0;
     return;
 }
 
@@ -32,6 +34,9 @@ void esvazia_fila(Fila **f) {
 }
 
 void adiciona_fila(Fila *f, cadastro x) {
+    if(f->tam >= 10){
+        return;
+    }
     No_fila *aux;
     aux = malloc(sizeof(No_fila));
     aux->info = x;
@@ -41,17 +46,8 @@ void adiciona_fila(Fila *f, cadastro x) {
     f->fim = aux;
     if (fila_vazia(f))
         f->ini = aux;
+    f->tam++;
     return;
-}
-
-int tamanho_fila(Fila *f) {
-    No_fila *aux = f->ini;
-    int contagem = 0;
-    while (aux != NULL) {
-        contagem++;
-        aux = aux->prox;
-    }
-    return contagem;
 }
 
 int remove_fila(Fila *f, cadastro *x) {
@@ -62,6 +58,7 @@ int remove_fila(Fila *f, cadastro *x) {
     aux = f->ini;
     f->ini = f->ini->prox;
     free(aux);
+    f->tam--;
     return 0;
 }
 
@@ -81,10 +78,21 @@ int encontra_elem_fila(Fila *f, int placa){
             return 1;
         }
         i++;
+        aux = aux->prox;
     }
     return 0;
 }
 
+int fila_cheia(Fila *f){
+    if(f->tam >= 10){
+        return 1;
+    }
+    return 0;
+}
+
+int get_ultimo_fila(Fila *f){
+    return get_saida(&(f->fim->info));
+}
 
 void printa_fila(Fila *f, char sucesso[], char fracasso[]){
     No_fila *aux;
@@ -98,6 +106,7 @@ void printa_fila(Fila *f, char sucesso[], char fracasso[]){
         printf("%s%d:\n",sucesso,i);
         printa_cadastro(&(aux->info));
         i++;
+        aux = aux->prox;
     }
     return;
 }

@@ -40,9 +40,11 @@ int pilha_vazia(Pilha *p) {
 }
 
 void adiciona_pilha(Pilha *p, cadastro x) {
+    if(p->tam >= 5){
+        return;
+    }
     No_pilha *aux = malloc(sizeof(No_pilha));
     aux->info = x;
-
     aux->prox = p->ini;
     p->ini = aux;
     p->tam++;
@@ -77,8 +79,20 @@ int encontra_elem_pilha(Pilha *p, int placa){
             return 1;
         }
         i++;
+        aux = aux->prox;
     }
     return 0;
+}
+
+int pilha_cheia(Pilha *p){
+    if(p->tam >= 5){
+        return 1;
+    }
+    return 0;
+}
+
+int get_saida_primeiro(Pilha *p){
+    return get_saida(&(p->ini->info));
 }
 
 void printa_pilha(Pilha *p, char sucesso[], char fracasso[]){
@@ -93,6 +107,7 @@ void printa_pilha(Pilha *p, char sucesso[], char fracasso[]){
         printf("%s%d:\n",sucesso,i);
         printa_cadastro(&(aux->info));
         i++;
+        aux = aux->prox;
     }
     return;
 }

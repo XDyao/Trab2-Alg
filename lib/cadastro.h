@@ -12,5 +12,6 @@ typedef struct elem{
 
 void set_cadastro(cadastro *carro, int plate, int in, int hours, int out, int boolean);
 void printa_cadastro(cadastro *carro);
+int get_saida(cadastro *carro);
 
 #endif
