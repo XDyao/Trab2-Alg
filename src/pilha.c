@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "../lib/pilha.h"
 
 struct no{
@@ -64,17 +65,34 @@ int getTamPilha(Pilha *p){
     return (p->tam);
 }
 
-void printa_pilha(Pilha *p){
+int encontra_elem_pilha(Pilha *p, int placa){
+    if (pilha_vazia(p)){
+        return 0;
+    }
+    No_pilha *aux;
+    aux = p->ini;
+    int i = 1;
+    while(aux != NULL){
+        if(aux->info.placa == placa){
+            return 1;
+        }
+        i++;
+    }
+    return 0;
+}
+
+void printa_pilha(Pilha *p, char sucesso[], char fracasso[]){
     No_pilha *aux;
     if (pilha_vazia(p)){
-        printf("Pilha Vazia!\n");
+        printf("%s",fracasso);
         return;
     }
     aux = p->ini;
     int i = 1;
     while(aux != NULL){
-        printf("%dº Carro da Pilha\n",i);
+        printf("%s%d:\n",sucesso,i);
         printa_cadastro(&(aux->info));
         i++;
     }
+    return;
 }

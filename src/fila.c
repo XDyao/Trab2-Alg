@@ -69,16 +69,33 @@ int fila_vazia(Fila *f) {
     return (f->ini == NULL);
 }
 
-void printa_fila(Fila *f){
+int encontra_elem_fila(Fila *f, int placa){
+    if (fila_vazia(f)){
+        return 0;
+    }
+    No_fila *aux;
+    aux = f->ini;
+    int i = 1;
+    while(aux != NULL){
+        if(aux->info.placa == placa){
+            return 1;
+        }
+        i++;
+    }
+    return 0;
+}
+
+
+void printa_fila(Fila *f, char sucesso[], char fracasso[]){
     No_fila *aux;
     if (fila_vazia(f)){
-        printf("Fila Vazia!\n");
+        printf("%s",fracasso);
         return;
     }
     aux = f->ini;
     int i = 1;
     while(aux != NULL){
-        printf("%dº Carro da Fila\n",i);
+        printf("%s%d:\n",sucesso,i);
         printa_cadastro(&(aux->info));
         i++;
     }

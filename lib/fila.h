@@ -10,4 +10,5 @@ void adiciona_fila(Fila *f, cadastro x);
 int tamanho_fila(Fila *f);
 int remove_fila(Fila *f, cadastro *x);
 int fila_vazia(Fila *f);
-void printa_fila(Fila *f);
+int encontra_elem_fila(Fila *p, int placa);
+void printa_fila(Fila *f, char sucesso[], char fracasso[]);

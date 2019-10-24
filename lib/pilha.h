@@ -8,4 +8,5 @@ void destroi_pilha(Pilha **p);
 int pilha_vazia(Pilha *p);
 void adiciona_pilha(Pilha *p, cadastro x);
 int tira_pilha(Pilha *p,  cadastro *x);
-void printa_pilha(Pilha *p);
+int encontra_elem_pilha(Pilha *p, int placa);
+void printa_pilha(Pilha *p, char sucesso[], char fracasso[]);

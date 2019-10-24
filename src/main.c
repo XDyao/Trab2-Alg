@@ -16,6 +16,7 @@ int main(void){
     do{
         printf("\t\t\tMENU DE OPCOES:\n");
         printf("1 - Registrar carro\t2 - Imprimir carros\t3 - Sair\n");
+        printf("ESCOLHA UMA OPCAO: ");
         scanf("%d",&op);
 
         switch(op){
@@ -29,8 +30,8 @@ int main(void){
                 set_cadastro(carro, plate, in, hours, (in+hours), desconto);
                 break;
             case 2:
-                printa_fila((*f));
-                printa_pilha((*p));
+                printa_fila((*f),"Carro ", "Fila Vazia!\n");
+                printa_pilha((*p),"Carro ", "Pilha Vazia!\n");
                 break;
             case 3:
                 break;
