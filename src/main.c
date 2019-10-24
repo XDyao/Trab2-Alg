@@ -4,6 +4,23 @@
 #include "../lib/pilha.h"
 #include "../lib/cadastro.h"
 
+
+void remove_expirados(Pilha *p, Fila *f, int in){
+    if(!fila_vazia(f)){
+        while((get_primeiro_fila((f)) <= in)){
+            remove_fila(f);
+        }
+    }
+    if(!pilha_vazia(p)){
+        while((get_saida_primeiro(p) <= in)){
+            tira_pilha(p);
+        }
+    }
+    return;
+}
+
+
+
 int main(void){
 
     int plate, in, hours, out, desconto = 0;
@@ -38,6 +55,7 @@ int main(void){
                 }
                 cadastro *carro = malloc(sizeof(carro));
                 set_cadastro(carro, plate, in, hours, (in+hours), desconto);
+                remove_expirados((*p), (*f), in);
                 if( (pilha_vazia((*p)) && fila_vazia((*f))) || (pilha_vazia((*p)) && !fila_vazia((*f)))){
                     adiciona_pilha((*p),(*carro));
                 }

@@ -51,11 +51,10 @@ void adiciona_pilha(Pilha *p, cadastro x) {
     return;
 }
 
-int tira_pilha(Pilha *p, cadastro *x) {
+int tira_pilha(Pilha *p) {
     No_pilha *aux;
     if (pilha_vazia(p))
         return 1;
-    *x = p->ini->info;
     aux = p->ini;
     p->ini = p->ini->prox;
     free(aux);
@@ -92,7 +91,9 @@ int pilha_cheia(Pilha *p){
 }
 
 int get_saida_primeiro(Pilha *p){
+    if(p->ini==NULL) return 26;
     return get_saida(&(p->ini->info));
+    
 }
 
 void printa_pilha(Pilha *p, char sucesso[], char fracasso[]){

@@ -50,11 +50,10 @@ void adiciona_fila(Fila *f, cadastro x) {
     return;
 }
 
-int remove_fila(Fila *f, cadastro *x) {
+int remove_fila(Fila *f) {
     No_fila *aux;
     if (fila_vazia(f))
         return 1;
-    *x = f->ini->info;
     aux = f->ini;
     f->ini = f->ini->prox;
     free(aux);
@@ -92,6 +91,15 @@ int fila_cheia(Fila *f){
 
 int get_ultimo_fila(Fila *f){
     return get_saida(&(f->fim->info));
+}
+
+int get_primeiro_fila(Fila *f){
+    if(f->ini==NULL) return 26;
+    return get_saida(&(f->ini->info));
+}
+
+No_fila *get_cadastro_primeiro_fila(Fila *f){
+    return (f->ini);
 }
 
 void printa_fila(Fila *f, char sucesso[], char fracasso[]){
